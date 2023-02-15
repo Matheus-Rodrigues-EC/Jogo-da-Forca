@@ -1,9 +1,66 @@
 // (imagem da forca, botão de iniciar, palavra do jogo)
+import styled from "styled-components";
 
-import Forca0 from "assets/forca0.png";
-import Forca1 from "assets/forca1.png";
-import Forca2 from "assets/forca2.png";
-import Forca3 from "assets/forca3.png";
-import Forca4 from "assets/forca4.png";
-import Forca5 from "assets/forca5.png";
-import Forca6 from "assets/forca6.png";
+
+
+export default function Jogo(props){
+    return (
+        <LocateImage>
+            <Button disabled="disabled" onClick={() => {console.log('cliquei')}}>Escolher Palavra</Button>
+            <Word>{props.palavra}</Word>
+            <Image src="assets/forca0.png" alt=""/>
+        </LocateImage>
+    )
+}
+
+
+const LocateImage = styled.section`
+        width: 400px;
+        height: 467px;
+        margin: 59px auto 70px 38px;
+`;
+
+const Image = styled.img`
+        width: 100%;
+`;
+
+const Button = styled.button`
+        position: absolute;
+        top: 89px;
+        right: 53px;
+
+        width: 200px;
+        height: 60px;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        background: #27AE60;
+        border-radius: 8px;
+        color: #FFFFFF;
+`;
+
+const Word = styled.section`
+        position: absolute;
+        top: 431px;
+        right: 61px;
+
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 68px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 10px;
+
+        color: #000000;
+`;
