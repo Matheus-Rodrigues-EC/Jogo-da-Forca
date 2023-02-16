@@ -6,8 +6,10 @@ import styled from "styled-components";
 export default function Jogo(props){
     return (
         <LocateImage>
-            <Button disabled="disabled" onClick={() => {console.log('cliquei')}}>Escolher Palavra</Button>
-            <Word>{props.palavra}</Word>
+            <Button onClick={props.func}>Escolher Palavra</Button>
+                <Word>
+                    {props.palavra}
+                </Word>
             <Image src="assets/forca0.png" alt=""/>
         </LocateImage>
     )
