@@ -6,11 +6,10 @@ export const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", 
 export default function Letras(props){
     const {select, setSelect} = props;
 
-    
     function selectedLetter(letra){
         setSelect([...select, letra]);
     }
-
+    console.log(select)
     return (
         <Keyboard>
             {alfabeto.map((letra) => 

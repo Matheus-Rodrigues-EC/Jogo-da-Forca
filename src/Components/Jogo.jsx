@@ -1,13 +1,14 @@
 // (imagem da forca, botão de iniciar, palavra do jogo)
 import styled from "styled-components";
 
-
 export default function Jogo(props){
+    const { word, setWord } = props; 
+
     return (
         <LocateImage>
-            <Button onClick={props.choice}>Escolher Palavra</Button>
+            <Button onClick={setWord}>Escolher Palavra</Button>
                 <Word>
-                    {props.palavra}
+                    {word}
                 </Word>
             <Image src="assets/forca0.png" alt=""/>
         </LocateImage>
