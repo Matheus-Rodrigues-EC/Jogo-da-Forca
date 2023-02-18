@@ -1,6 +1,7 @@
 // (conjunto de botões com as letras)
 import styled from "styled-components";
 
+
 export const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 export default function Letras(props){
@@ -12,8 +13,9 @@ export default function Letras(props){
     console.log("Erros " + cont)
 
     function selectedLetter(letra){
-        if(cont < 7){
-            setSelect([...select, letra]);
+        if(cont < 5){
+            const newArray = [...select]
+            setSelect([...newArray, letra]);
         }else{
             setSelect(alfabeto)
         }
@@ -24,20 +26,23 @@ export default function Letras(props){
         for(let i = 0; i < word.length; i++){
             if(letra === word[i]) inc++ 
         }
-        setCount(count + inc);
+        const newInc = count + inc;
+        setCount(newInc);
 
-        if(count >= word.length && cont < 7){
+        if((newInc === word.length) && (cont < 6)){
             setSelect(alfabeto)
         }
     }
+
+    
 
     return (
         <Keyboard>
             {alfabeto.map((letra) => 
                 <Button 
                     key={letra} 
-                    disabled={select.includes(letra) ? 'disabled' : ''} 
-                    onClick={() => {selectedLetter(letra); 
+                    disabled={select.includes(letra) ? true : false} 
+                    onClick={() => {selectedLetter(letra);
                                     compare(letra); 
                                     contErrors(letra); 
                                     finish(letra);
@@ -62,18 +67,20 @@ const Keyboard = styled.section`
         gap: 12px;
 `;
 
-const Button = styled.button`
-        width: 40px;
-        height: 40px;
-        border: 1px solid #7AA7C7;
-        border-radius: 3px;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
+let Button = styled.button`
+    width: 40px;
+    height: 40px;
+    color: #39739D;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;

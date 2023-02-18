@@ -6,7 +6,7 @@ export default function Jogo(props){
     return (
         <LocateImage>
             <Button onClick={setWord} data-test="choose-word">Escolher Palavra</Button>
-                {cont < 7 ? count === word.length ? 
+                {cont < 6 ? count === word.length ? 
                     <WordRight data-test="word">
                         {word}
                     </WordRight>

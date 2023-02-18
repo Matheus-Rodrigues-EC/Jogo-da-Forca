@@ -19,14 +19,12 @@ function App() {
   const [select, setSelect] = useState([...alfabeto]);
   const [cont, setCont] = useState(0)
   const [count, setCount] = useState(0)
-  const [image, setImage] = useState(images[cont]);
-
-  console.log(cont)
+  const [image, setImage] = useState(images[0]);
 
   function randonWord(){
     let locate = Math.floor(Math.random() * Palavras.length);
       
-    setCont(1)
+    setCont(0)
     setCount(0)
     setImage(images[0])
     Answer = Palavras[locate];
@@ -41,10 +39,11 @@ function App() {
 
   function contErrors(letra){
     if(!Answer.includes(letra)){
-      setCont(cont + 1)
-      setImage(images[cont])
+      const newCont = cont + 1;
+      setCont(newCont)
+      setImage(images[newCont])
     }
-    if(cont >= 7) setCont(1)
+    if(cont >= 6) setCont(0)
   }
 
   return (
@@ -55,7 +54,6 @@ function App() {
             cont={cont}
             count={count}
             select={select}
-            setSelect={() => setSelect()}
             />
       <Letras word={word}
               select={select} 
