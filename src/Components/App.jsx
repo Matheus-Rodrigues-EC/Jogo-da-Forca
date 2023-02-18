@@ -37,13 +37,17 @@ function App() {
   }
 
   function compare(letra){
+    console.log(Answer)
+    console.log(select)
     if(Answer.includes(letra)){
       return(Answer);
     }
   }
 
   function contErrors(letra){
-    if(!Answer.includes(letra)){
+    const teste = Answer.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+    console.log("teste " + teste)
+    if(!teste.includes(letra)){
       const newCont = cont + 1;
       setCont(newCont)
       setImage(images[newCont])

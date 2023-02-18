@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export default function Jogo(props){
     const {word, setWord, image, cont, count, select} = props; 
+    // const str = 'ÁÉÍÓÚáéíóúâêîôûàèìòùÇç';
+    // const text = Answer.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
 
     return (
         <LocateImage>
@@ -13,7 +15,7 @@ export default function Jogo(props){
                     :
                     <Word className="black" data-test="word">
                         {word.split("").map((letra) => {
-                            return select.includes(letra) ? letra : "_"
+                            return select.includes(letra.normalize("NFD").replace(/[\u0300-\u036f]/g, '')) ? letra : "_"
                         })}
                     </Word>
                     :

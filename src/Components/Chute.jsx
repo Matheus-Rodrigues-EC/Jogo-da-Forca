@@ -4,8 +4,6 @@ import { alfabeto } from "./Letras";
 export default function Chute(props){
     const {tentativa, setTentativa, chute, setChute, word, setImage, setCount, setCont, setSelect} = props;
 
-    
-
     function verifyChute(){
         if(tentativa === word){
             console.log("certo");
@@ -21,7 +19,6 @@ export default function Chute(props){
             
         }
     }
-
 
     return(
         <Section>
