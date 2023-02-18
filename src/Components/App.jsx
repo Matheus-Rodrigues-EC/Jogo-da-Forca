@@ -1,6 +1,7 @@
 import Palavras from "../palavras";
 import Letras, {alfabeto} from "./Letras";
 import Jogo from "./Jogo";
+import Chute from "./Chute";
 import { useState } from "react";
 
 
@@ -20,14 +21,18 @@ function App() {
   const [cont, setCont] = useState(0)
   const [count, setCount] = useState(0)
   const [image, setImage] = useState(images[0]);
+  const [chute, setChute] = useState('disabled');
+  const [tentativa, setTentativa] = useState("");
 
   function randonWord(){
     let locate = Math.floor(Math.random() * Palavras.length);
       
-    setCont(0)
-    setCount(0)
-    setImage(images[0])
+    setCont(0);
+    setCount(0);
+    setImage(images[0]);
     Answer = Palavras[locate];
+    setChute(true);
+    setTentativa("");
     return Answer;
   }
 
@@ -63,6 +68,18 @@ function App() {
               count={count}
               setCount={setCount}
               contErrors={contErrors}
+              setChute={setChute}
+              />
+      <Chute  chute={chute}
+              setChute={setChute}
+              word={word}
+              image={image}
+              setImage={setImage}
+              setCount={setCount}
+              setCont={setCont}
+              tentativa={tentativa}
+              setTentativa={setTentativa}
+              setSelect={setSelect}
               />
     </div>
   );

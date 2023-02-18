@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 export default function Letras(props){
-    const {word, select, setSelect, compare, cont, count, setCount, contErrors} = props;
+    const {word, select, setSelect, compare, cont, count, setCount, contErrors, setChute} = props;
 
     console.log(word);
     console.log("tamanho da palavra " + word.length)
@@ -31,10 +31,9 @@ export default function Letras(props){
 
         if((newInc === word.length) && (cont < 6)){
             setSelect(alfabeto)
+            setChute('disabled')
         }
     }
-
-    
 
     return (
         <Keyboard>
