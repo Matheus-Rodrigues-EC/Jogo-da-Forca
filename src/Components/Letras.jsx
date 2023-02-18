@@ -4,19 +4,24 @@ import styled from "styled-components";
 export const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 export default function Letras(props){
-    const {select, setSelect} = props;
+    const {select, setSelect, compare, cont, contErrors} = props;
 
     function selectedLetter(letra){
-        setSelect([...select, letra]);
+        if(cont < 6){
+            setSelect([...select, letra]);
+            console.log(letra)
+        }else{
+            setSelect(alfabeto)
+        }
     }
-    console.log(select)
+
     return (
         <Keyboard>
             {alfabeto.map((letra) => 
                 <Button 
                     key={letra} 
                     disabled={select.includes(letra) ? 'disabled' : ''} 
-                    onClick={() => selectedLetter(letra)}
+                    onClick={() => {selectedLetter(letra); compare(letra); contErrors(letra)}}
                 >
                     {letra}
                 </Button>

@@ -2,15 +2,23 @@
 import styled from "styled-components";
 
 export default function Jogo(props){
-    const { word, setWord } = props; 
-
+    const {word, setWord, image, cont, select} = props; 
+    // const {wordArray, wordArrayHidden} = props.word
+    console.log(word);
     return (
         <LocateImage>
             <Button onClick={setWord}>Escolher Palavra</Button>
-                <Word>
-                    {word}
-                </Word>
-            <Image src="assets/forca0.png" alt=""/>
+                {cont < 7 ? 
+                    <Word>
+                        {word.split("").map((letra) => {
+                            return select.includes(letra) ? letra : "_"
+                        })}
+                    </Word> :
+                    <WordError>
+                        {word}
+                    </WordError>
+                    }
+            <Image src={image} alt=""/>
         </LocateImage>
     )
 }
@@ -66,3 +74,39 @@ const Word = styled.section`
 
         color: #000000;
 `;
+
+const WordError = styled.section`
+    position: absolute;
+        top: 431px;
+        right: 61px;
+
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 68px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 10px;
+
+        color: #ff0000;
+`
+
+// const WordRight = styled.section`
+//     position: absolute;
+//         top: 431px;
+//         right: 61px;
+
+//         font-family: 'Noto Sans';
+//         font-style: normal;
+//         font-weight: 700;
+//         font-size: 50px;
+//         line-height: 68px;
+//         display: flex;
+//         align-items: center;
+//         text-align: center;
+//         letter-spacing: 10px;
+
+//         color: #00ff3c;
+// `
