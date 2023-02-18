@@ -18,6 +18,7 @@ function App() {
   const [word, setWord] = useState("");
   const [select, setSelect] = useState([...alfabeto]);
   const [cont, setCont] = useState(0)
+  const [count, setCount] = useState(0)
   const [image, setImage] = useState(images[cont]);
 
   console.log(cont)
@@ -26,9 +27,9 @@ function App() {
     let locate = Math.floor(Math.random() * Palavras.length);
       
     setCont(1)
+    setCount(0)
     setImage(images[0])
     Answer = Palavras[locate];
-    console.log(Answer);
     return Answer;
   }
 
@@ -46,27 +47,26 @@ function App() {
     if(cont >= 7) setCont(1)
   }
 
-
-
   return (
     <div className="App">
       <Jogo word={word} 
             setWord={() => {setWord(randonWord(), compare()); setSelect([]);}}
             image={image}
             cont={cont}
+            count={count}
             select={select}
+            setSelect={() => setSelect()}
             />
-      <Letras select={select} 
+      <Letras word={word}
+              select={select} 
               setSelect={setSelect} 
               compare={compare}
               cont={cont}
+              count={count}
+              setCount={setCount}
               contErrors={contErrors}
               />
     </div>
   );
 }
-
-
-
-
 export default App;

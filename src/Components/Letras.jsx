@@ -4,13 +4,29 @@ import styled from "styled-components";
 export const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 export default function Letras(props){
-    const {select, setSelect, compare, cont, contErrors} = props;
+    const {word, select, setSelect, compare, cont, count, setCount, contErrors} = props;
+
+    console.log(word);
+    console.log("tamanho da palavra " + word.length)
+    console.log("verificador " + count)
+    console.log("Erros " + cont)
 
     function selectedLetter(letra){
-        if(cont < 6){
+        if(cont < 7){
             setSelect([...select, letra]);
-            console.log(letra)
         }else{
+            setSelect(alfabeto)
+        }
+    }
+
+    function finish(letra){
+        let inc = 0
+        for(let i = 0; i < word.length; i++){
+            if(letra === word[i]) inc++ 
+        }
+        setCount(count + inc);
+
+        if(count >= word.length && cont < 7){
             setSelect(alfabeto)
         }
     }
@@ -21,7 +37,12 @@ export default function Letras(props){
                 <Button 
                     key={letra} 
                     disabled={select.includes(letra) ? 'disabled' : ''} 
-                    onClick={() => {selectedLetter(letra); compare(letra); contErrors(letra)}}
+                    onClick={() => {selectedLetter(letra); 
+                                    compare(letra); 
+                                    contErrors(letra); 
+                                    finish(letra);
+                                }}
+                    data-test="letter"
                 >
                     {letra}
                 </Button>

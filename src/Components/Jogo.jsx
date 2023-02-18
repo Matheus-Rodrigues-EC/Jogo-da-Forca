@@ -1,28 +1,30 @@
-// (imagem da forca, botão de iniciar, palavra do jogo)
 import styled from "styled-components";
 
 export default function Jogo(props){
-    const {word, setWord, image, cont, select} = props; 
-    // const {wordArray, wordArrayHidden} = props.word
-    console.log(word);
+    const {word, setWord, image, cont, count, select} = props; 
+
     return (
         <LocateImage>
-            <Button onClick={setWord}>Escolher Palavra</Button>
-                {cont < 7 ? 
-                    <Word>
+            <Button onClick={setWord} data-test="choose-word">Escolher Palavra</Button>
+                {cont < 7 ? count === word.length ? 
+                    <WordRight data-test="word">
+                        {word}
+                    </WordRight>
+                    :
+                    <Word className="black" data-test="word">
                         {word.split("").map((letra) => {
                             return select.includes(letra) ? letra : "_"
                         })}
-                    </Word> :
-                    <WordError>
+                    </Word>
+                    :
+                    <WordError data-test="word">
                         {word}
                     </WordError>
                     }
-            <Image src={image} alt=""/>
+            <Image src={image} alt="" data-test="game-image"/>
         </LocateImage>
     )
 }
-
 
 const LocateImage = styled.section`
         width: 400px;
@@ -93,20 +95,20 @@ const WordError = styled.section`
         color: #ff0000;
 `
 
-// const WordRight = styled.section`
-//     position: absolute;
-//         top: 431px;
-//         right: 61px;
+const WordRight = styled.section`
+    position: absolute;
+        top: 431px;
+        right: 61px;
 
-//         font-family: 'Noto Sans';
-//         font-style: normal;
-//         font-weight: 700;
-//         font-size: 50px;
-//         line-height: 68px;
-//         display: flex;
-//         align-items: center;
-//         text-align: center;
-//         letter-spacing: 10px;
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 68px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 10px;
 
-//         color: #00ff3c;
-// `
+        color: #00ff3c;
+`
