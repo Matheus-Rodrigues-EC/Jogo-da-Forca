@@ -6,12 +6,10 @@ export default function Chute(props){
 
     function verifyChute(){
         if(tentativa === word){
-            console.log("certo");
             setCount(word.length);
             setChute("disabled");
             setSelect(alfabeto);
         }else{
-            console.log("errado");
             setImage("assets/forca6.png");
             setCont(6);
             setChute("disabled");

@@ -7,10 +7,6 @@ export const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", 
 export default function Letras(props){
     const {word, select, setSelect, compare, cont, count, setCount, contErrors, setChute} = props;
 
-    console.log("tamanho da palavra " + word.length)
-    console.log("verificador " + count)
-    console.log("Erros " + cont)
-
     function selectedLetter(letra){
         if(cont < 5){
             const newArray = [...select]
