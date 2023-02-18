@@ -69,7 +69,7 @@ let Button = styled.button`
     background: #E1ECF4;
     border: 1px solid #7AA7C7;
     border-radius: 3px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;

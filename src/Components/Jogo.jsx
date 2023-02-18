@@ -46,7 +46,7 @@ const Button = styled.button`
         width: 200px;
         height: 60px;
 
-        font-family: 'Roboto';
+        font-family: 'Roboto', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 20px;
@@ -66,7 +66,7 @@ const Word = styled.section`
         top: 431px;
         right: 61px;
 
-        font-family: 'Noto Sans';
+        font-family: 'Noto Sans', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 50px;
@@ -84,7 +84,7 @@ const WordError = styled.section`
         top: 431px;
         right: 61px;
 
-        font-family: 'Noto Sans';
+        font-family: 'Noto Sans', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 50px;
@@ -102,7 +102,7 @@ const WordRight = styled.section`
         top: 431px;
         right: 61px;
 
-        font-family: 'Noto Sans';
+        font-family: 'Noto Sans', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 50px;
