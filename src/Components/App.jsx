@@ -35,6 +35,7 @@ function App() {
     setTentativa("");
     return Answer;
   }
+  console.log(word);
 
   function compare(letra){
     if(Answer.includes(letra)){
@@ -43,7 +44,7 @@ function App() {
   }
 
   function contErrors(letra){
-    if(!Answer.includes(letra)){
+    if(!Answer.normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(letra)){
       const newCont = cont + 1;
       setCont(newCont)
       setImage(images[newCont])

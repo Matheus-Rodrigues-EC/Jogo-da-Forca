@@ -5,7 +5,7 @@ export default function Chute(props){
     const {tentativa, setTentativa, chute, setChute, word, setImage, setCount, setCont, setSelect} = props;
 
     function verifyChute(){
-        if(tentativa === word){
+        if(tentativa.normalize("NFD").replace(/[\u0300-\u036f]/g, '') === word.normalize("NFD").replace(/[\u0300-\u036f]/g, '')){
             setCount(word.length);
             setChute("disabled");
             setSelect(alfabeto);
@@ -17,6 +17,13 @@ export default function Chute(props){
             
         }
     }
+
+    // tentativa de fazer o chute com enter
+    // document.addEventListener("keydown", function (event) {
+    //     if (event.key === 'Enter') {
+    //         verifyChute();
+    //     }
+    // })
 
     return(
         <Section>
